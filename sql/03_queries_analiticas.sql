@@ -1,0 +1,1 @@
+(Respostas das perguntas de negócio)
