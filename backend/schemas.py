@@ -8,8 +8,8 @@ class OperadoraBase(BaseModel):
     registro_ans: int = Field(..., alias="RegistroANS")
     cnpj: str = Field(..., alias="CNPJ")
     razao_social: str = Field(..., alias="RazaoSocial")
-    uf: Optional[str] = None
-    modalidade: Optional[str] = None
+    uf: Optional[str] = Field(None, alias="UF") 
+    modalidade: Optional[str] = Field(None, alias="Modalidade")
 
     class Config:
         from_attributes = True
