@@ -1,6 +1,8 @@
 from fastapi import APIRouter, Depends, HTTPException, Query, Path
 from sqlalchemy.orm import Session
 from typing import List
+from sqlalchemy import or_ # <--- IMPORTANTE: Importar o operador OR
+from typing import List, Optional # <--- Importar Optional
 import math
 import re
 
@@ -17,32 +19,42 @@ def limpar_cnpj(cnpj: str) -> str:
     """Remove caracteres não numéricos do CNPJ."""
     return re.sub(r'\D', '', cnpj)
 
-# Rota: GET /api/operadoras?page=1&limit=10
+
+
+
 @router.get("/", response_model=schemas.OperadoraResponse)
 def list_operadoras(
-    page: int = Query(1, ge=1, description="Número da página (inicia em 1)"),
-    limit: int = Query(10, ge=1, le=100, description="Registros por página"),
+    page: int = Query(1, ge=1),
+    limit: int = Query(10, ge=1, le=100),
+    search: Optional[str] = Query(None, description="Busca por Razão Social ou CNPJ"), # <--- NOVO PARÂMETRO
     db: Session = Depends(database.get_db)
 ):
-    """
-    Lista todas as operadoras com paginação.
-    """
-    # 1. Calcular o offset (quantos registros pular)
-    # Se page=1, skip=0. Se page=2, skip=10...
+    # 1. Base da Query
+    query = db.query(models.Operadora)
+
+    # 2. Aplicar Filtro de Busca (Se houver)
+    if search:
+        # Remove caracteres especiais caso seja uma busca por CNPJ
+        termo_limpo = search.strip()
+        search_cnpj = re.sub(r'\D', '', termo_limpo)
+        
+        # Filtra onde (CNPJ contém o termo) OU (Razão Social contém o termo)
+        query = query.filter(
+            or_(
+                models.Operadora.razao_social.ilike(f"%{termo_limpo}%"), # ilike = case insensitive
+                models.Operadora.cnpj.like(f"%{search_cnpj}%") if search_cnpj else False
+            )
+        )
+
+    # 3. Contar total (já filtrado)
+    total_registros = query.count()
+
+    # 4. Paginação
     skip = (page - 1) * limit
+    operadoras = query.offset(skip).limit(limit).all()
+    
+    total_pages = math.ceil(total_registros / limit) if limit > 0 else 1
 
-    # 2. Obter o total de registros (Query Count)
-    # Trade-off: Fazer duas queries (count + data) é mais custoso, 
-    # mas necessário para o frontend saber o 'total_pages'.
-    total_registros = db.query(models.Operadora).count()
-
-    # 3. Obter os dados paginados
-    operadoras = db.query(models.Operadora).offset(skip).limit(limit).all()
-
-    # 4. Calcular total de páginas
-    total_pages = math.ceil(total_registros / limit)
-
-    # 5. Montar a resposta envelopada (conforme seu schema)
     return {
         "data": operadoras,
         "meta": {
@@ -52,7 +64,6 @@ def list_operadoras(
             "total_pages": total_pages
         }
     }
-
 
 @router.get("/{cnpj}", response_model=schemas.OperadoraDetalhe)
 def get_operadora(

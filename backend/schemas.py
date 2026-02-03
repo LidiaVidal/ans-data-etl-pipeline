@@ -1,19 +1,20 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from typing import List, Optional
 from datetime import date
 
 # --- Schemas Básicos (Representam os dados) ---
 
 class OperadoraBase(BaseModel):
-    registro_ans: int
-    cnpj: Optional[str] = None
-    razao_social: Optional[str] = None
+    registro_ans: str = Field(..., alias="RegistroANS")
+    cnpj: str = Field(..., alias="CNPJ")
+    razao_social: str = Field(..., alias="RazaoSocial")
     uf: Optional[str] = None
     modalidade: Optional[str] = None
 
     class Config:
-        from_attributes = True # Permite ler dados direto do SQLAlchemy
-
+        from_attributes = True
+        class Config:populate_by_name = True 
+        
 class OperadoraDetalhe(OperadoraBase):
     pass
 

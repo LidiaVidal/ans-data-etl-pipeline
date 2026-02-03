@@ -45,6 +45,8 @@ export const useOperadorasStore = defineStore('operadoras', {
             // Fallback caso o backend retorne apenas a lista direta (sem paginação)
             this.lista = response.data;
             this.total = response.data.length;
+
+            const response = await api.get('/operadoras/', { params }); 
         }
 
       } catch (error) {
@@ -64,5 +66,8 @@ export const useOperadorasStore = defineStore('operadoras', {
         this.loading = false;
       }
     }
+    
   }
+
+  
 });
