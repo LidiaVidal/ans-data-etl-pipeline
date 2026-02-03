@@ -14,6 +14,16 @@
     <div v-if="store.loading" class="feedback">Carregando dados...</div>
     <div v-if="store.erro" class="error">{{ store.erro }}</div>
 
+    <div class="container">
+      <h1>Dashboard Financeiro</h1>
+      
+      <div style="margin-bottom: 40px;">
+        <GraficoDespesas :dados="estatisticasUf" />
+      </div>
+
+      <h1>Lista de Operadoras</h1>
+    </div>
+
     <div v-if="!store.loading && !store.erro">
       <table class="operadoras-table">
         <thead>
@@ -66,8 +76,32 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
+
 import { useOperadorasStore } from '../stores/operadorasStore';
+import GraficoDespesas from '../components/GraficoDespesas.vue'; // Importe o componente
+import api from '../services/api'; // Importe a api para chamar /estatisticas
+import { ref, onMounted } from 'vue';
+
+// ... (seu código existente do store de operadoras)
+
+// Estado para armazenar as estatísticas
+const estatisticasUf = ref([]);
+
+// Função para buscar dados do gráfico
+const carregarEstatisticas = async () => {
+  try {
+    const res = await api.get('/estatisticas');
+    // Atenção: aqui usamos a chave exata que você definiu no Python
+    estatisticasUf.value = res.data.despesas_por_uf; 
+  } catch (error) {
+    console.error("Erro ao carregar gráfico:", error);
+  }
+};
+
+onMounted(() => {
+  store.buscarOperadoras(); // Seu código existente
+  carregarEstatisticas();   // Nova chamada
+});
 
 // Inicializa o store
 const store = useOperadorasStore();

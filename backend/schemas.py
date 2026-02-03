@@ -5,7 +5,7 @@ from datetime import date
 # --- Schemas Básicos (Representam os dados) ---
 
 class OperadoraBase(BaseModel):
-    registro_ans: str = Field(..., alias="RegistroANS")
+    registro_ans: int = Field(..., alias="RegistroANS")
     cnpj: str = Field(..., alias="CNPJ")
     razao_social: str = Field(..., alias="RazaoSocial")
     uf: Optional[str] = None
@@ -13,7 +13,7 @@ class OperadoraBase(BaseModel):
 
     class Config:
         from_attributes = True
-        class Config:populate_by_name = True 
+        populate_by_name = True 
         
 class OperadoraDetalhe(OperadoraBase):
     pass
@@ -51,4 +51,22 @@ class TopOperadora(BaseModel):
 class EstatisticasResponse(BaseModel):
     total_geral: float
     media_por_operadora: float
-    top_5_operadoras: List[TopOperadora]    
+    top_5_operadoras: List[TopOperadora]  
+    despesas_por_uf: List[dict]  
+
+# ... mantenha os imports existentes ...
+
+# --- Adicione esta nova classe para representar uma linha do gráfico ---
+class DespesaUF(BaseModel):
+    uf: str
+    total: float
+    
+    class Config:
+        from_attributes = True
+
+# --- Atualize esta classe para incluir o novo campo ---
+class EstatisticasResponse(BaseModel):
+    total_geral: float
+    media_por_operadora: float
+    top_5_operadoras: List[TopOperadora]
+    despesas_por_uf: List[DespesaUF] # <--- NOVO CAMPO

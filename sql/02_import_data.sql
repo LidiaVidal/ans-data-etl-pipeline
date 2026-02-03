@@ -85,3 +85,7 @@ SET
     total_despesas = @v_total,
     media_despesas = @v_media,
     desvio_padrao = @v_desvio;
+
+    total_despesas = REPLACE(@v_total, ',', '.'),
+    media_despesas = REPLACE(@v_media, ',', '.'),
+    desvio_padrao  = REPLACE(@v_desvio, ',', '.');

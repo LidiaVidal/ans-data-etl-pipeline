@@ -41,7 +41,7 @@ def list_operadoras(
         # Filtra onde (CNPJ contém o termo) OU (Razão Social contém o termo)
         query = query.filter(
             or_(
-                models.Operadora.razao_social.ilike(f"%{termo_limpo}%"), # ilike = case insensitive
+                models.Operadora.razao_social.like(f"%{termo_limpo}%"),
                 models.Operadora.cnpj.like(f"%{search_cnpj}%") if search_cnpj else False
             )
         )

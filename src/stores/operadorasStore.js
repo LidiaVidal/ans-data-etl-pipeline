@@ -9,7 +9,9 @@ export const useOperadorasStore = defineStore('operadoras', {
     itensPorPagina: 10, // ADICIONEI ISSO: O backend precisa saber quantos itens trazer
     filtroBusca: '',    // O termo pesquisado
     loading: false,
-    erro: null
+    erro: null,
+    operadoraAtual: null,     
+    historicoDespesas: [],
   }),
 
   actions: {
@@ -65,8 +67,36 @@ export const useOperadorasStore = defineStore('operadoras', {
       } finally {
         this.loading = false;
       }
+    },
+
+    async carregarDetalhesOperadora(cnpj) {
+      this.loading = true;
+      this.erro = null;
+      // Limpa dados anteriores para não mostrar "lixo" de outra navegação
+      this.operadoraAtual = null; 
+      this.historicoDespesas = [];
+
+      try {
+        // Trade-off Técnico: Promise.all vs Await sequencial
+        // Optamos por Promise.all para disparar as duas requisições (dados + despesas)
+        // simultaneamente. Isso reduz o tempo total de espera do usuário.
+        const [resDados, resDespesas] = await Promise.all([
+          api.get(`/operadoras/${cnpj}`),
+          api.get(`/operadoras/${cnpj}/despesas`)
+        ]);
+
+        this.operadoraAtual = resDados.data;
+        this.historicoDespesas = resDespesas.data;
+
+      } catch (error) {
+        console.error("Erro ao carregar detalhes:", error);
+        this.erro = "Não foi possível carregar os detalhes desta operadora.";
+      } finally {
+        this.loading = false;
+      }
     }
-    
+
+
   }
 
   
