@@ -12,7 +12,7 @@ CREATE TABLE operadoras (
 CREATE TABLE despesas (
     id INT AUTO_INCREMENT PRIMARY KEY,
     registro_ans INT,            -- Chave de ligação alterada para bater com o arquivo
-    data_evento DATE,            -- Lembre-se de converter Ano/Trimestre na importação
+    data_evento DATE,            
     ano INT,
     trimestre INT,
     valor DECIMAL(15, 2),
@@ -29,8 +29,8 @@ CREATE TABLE despesas_agregadas (
     razao_social VARCHAR(255),
     uf CHAR(2),
     total_despesas DECIMAL(15, 2),
-    media_despesas DECIMAL(15, 2), -- Atenção: Seu CSV chama "MediaTrimestral"
-    desvio_padrao DECIMAL(15, 2),  -- Atenção: Seu CSV chama "DesvioPadrao"
+    media_despesas DECIMAL(15, 2), 
+    desvio_padrao DECIMAL(15, 2),  
     
     data_processamento TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 

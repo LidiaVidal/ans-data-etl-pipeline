@@ -3,7 +3,6 @@ import pandas as pd
 import os
 import requests
 import zipfile
-import os
 
 def baixar_cadastro_operadoras():
     """

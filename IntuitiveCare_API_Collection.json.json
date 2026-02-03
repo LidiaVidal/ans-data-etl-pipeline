@@ -1,0 +1,925 @@
+{
+	"info": {
+		"_postman_id": "94be8864-6f28-4129-945c-da73d8807085",
+		"name": "Intuitive Care API - Teste Backend",
+		"description": "API para consulta de operadoras e despesas da ANS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "52071054",
+		"_collection_link": "https://lvidal2507-4581563.postman.co/workspace/L%C3%ADdia-Vidal's-Workspace~dcf22ac9-159c-4fc6-8305-59f3a5fade9b/collection/52071054-94be8864-6f28-4129-945c-da73d8807085?action=share&source=collection_link&creator=52071054"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "operadoras",
+					"item": [
+						{
+							"name": "{cnpj}",
+							"item": [
+								{
+									"name": "despesas",
+									"item": [
+										{
+											"name": "Get Operadora Despesas",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/operadoras/:cnpj/despesas",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"operadoras",
+														":cnpj",
+														"despesas"
+													],
+													"variable": [
+														{
+															"key": "cnpj",
+															"value": "string"
+														}
+													]
+												},
+												"description": "Retorna o histórico de despesas de uma operadora específica."
+											},
+											"response": [
+												{
+													"name": "Successful Response",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/operadoras/:cnpj/despesas",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"operadoras",
+																":cnpj",
+																"despesas"
+															],
+															"variable": [
+																{
+																	"key": "cnpj"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "[\n  {\n    \"id\": 2386,\n    \"ano\": 421,\n    \"trimestre\": 7548,\n    \"valor\": 5778.611737784418,\n    \"data_evento\": \"1965-11-29\"\n  },\n  {\n    \"id\": 1981,\n    \"ano\": 754,\n    \"trimestre\": 1935,\n    \"valor\": 3703.2385100542765,\n    \"data_evento\": \"2015-06-23\"\n  }\n]"
+												},
+												{
+													"name": "Validation Error",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/operadoras/:cnpj/despesas",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"operadoras",
+																":cnpj",
+																"despesas"
+															],
+															"variable": [
+																{
+																	"key": "cnpj"
+																}
+															]
+														}
+													},
+													"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+													"code": 422,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        175\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        1672\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}"
+												},
+												{
+													"name": "Sucesso - Histórico de Despesas",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/operadoras/:cnpj/despesas",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"operadoras",
+																":cnpj",
+																"despesas"
+															],
+															"variable": [
+																{
+																	"key": "cnpj",
+																	"value": "50368034000101"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": null,
+													"header": [
+														{
+															"key": "date",
+															"value": "Tue, 03 Feb 2026 18:04:15 GMT"
+														},
+														{
+															"key": "server",
+															"value": "uvicorn"
+														},
+														{
+															"key": "content-length",
+															"value": "43976"
+														},
+														{
+															"key": "content-type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "[\n    {\n        \"id\": 83959,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 12214557.38\n    },\n    {\n        \"id\": 83960,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 12037275.83\n    },\n    {\n        \"id\": 83961,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 5150745.38\n    },\n    {\n        \"id\": 83962,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 5150745.38\n    },\n    {\n        \"id\": 83963,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 4885599\n    },\n    {\n        \"id\": 83964,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 5752.47\n    },\n    {\n        \"id\": 83965,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 5752.47\n    },\n    {\n        \"id\": 83966,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 519647.86\n    },\n    {\n        \"id\": 83967,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 595031.27\n    },\n    {\n        \"id\": 83968,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 5994.86\n    },\n    {\n        \"id\": 83969,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 61015.14\n    },\n    {\n        \"id\": 83970,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 8373.41\n    },\n    {\n        \"id\": 83971,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 49198.68\n    },\n    {\n        \"id\": 83972,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 49742.7\n    },\n    {\n        \"id\": 83973,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 308.02\n    },\n    {\n        \"id\": 83974,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 236\n    },\n    {\n        \"id\": 83975,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 230122.76\n    },\n    {\n        \"id\": 83976,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 268017.46\n    },\n    {\n        \"id\": 83977,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 15426.99\n    },\n    {\n        \"id\": 83978,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 9305.84\n    },\n    {\n        \"id\": 83979,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 13161.87\n    },\n    {\n        \"id\": 83980,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 145766.74\n    },\n    {\n        \"id\": 83981,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 254185.39\n    },\n    {\n        \"id\": 83982,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 8464.86\n    },\n    {\n        \"id\": 83983,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 20203.19\n    },\n    {\n        \"id\": 83984,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 79750.6\n    },\n    {\n        \"id\": 83985,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 2656.06\n    },\n    {\n        \"id\": 83986,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 2656.06\n    },\n    {\n        \"id\": 83987,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 654404.69\n    },\n    {\n        \"id\": 83988,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 760639.41\n    },\n    {\n        \"id\": 83989,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 3130.65\n    },\n    {\n        \"id\": 83990,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 102951.98\n    },\n    {\n        \"id\": 83991,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 152.09\n    },\n    {\n        \"id\": 83992,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 140202.8\n    },\n    {\n        \"id\": 83993,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 141845.02\n    },\n    {\n        \"id\": 83994,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 1287.63\n    },\n    {\n        \"id\": 83995,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 354.59\n    },\n    {\n        \"id\": 83996,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 1111094.41\n    },\n    {\n        \"id\": 83997,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 1150688.04\n    },\n    {\n        \"id\": 83998,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 5769.52\n    },\n    {\n        \"id\": 83999,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 33824.11\n    },\n    {\n        \"id\": 84000,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 2026752.53\n    },\n    {\n        \"id\": 84001,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 2196703.11\n    },\n    {\n        \"id\": 84002,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 10866.12\n    },\n    {\n        \"id\": 84003,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 158786.05\n    },\n    {\n        \"id\": 84004,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 298.41\n    },\n    {\n        \"id\": 84005,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 265146.38\n    },\n    {\n        \"id\": 84006,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 22432.24\n    },\n    {\n        \"id\": 84007,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 23267.22\n    },\n    {\n        \"id\": 84008,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 834.98\n    },\n    {\n        \"id\": 84009,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 83996.93\n    },\n    {\n        \"id\": 84010,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 84043.13\n    },\n    {\n        \"id\": 84011,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 46.2\n    },\n    {\n        \"id\": 84012,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 49139.15\n    },\n    {\n        \"id\": 84013,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 49842.07\n    },\n    {\n        \"id\": 84014,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 702.92\n    },\n    {\n        \"id\": 84015,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 0\n    },\n    {\n        \"id\": 84016,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 2219438.26\n    },\n    {\n        \"id\": 84017,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 9747.65\n    },\n    {\n        \"id\": 84018,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 2209690.61\n    },\n    {\n        \"id\": 84019,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 10685.53\n    },\n    {\n        \"id\": 84020,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 10685.53\n    },\n    {\n        \"id\": 84021,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 57435.36\n    },\n    {\n        \"id\": 84022,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 57452.02\n    },\n    {\n        \"id\": 84023,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 16.66\n    },\n    {\n        \"id\": 84024,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 41457.17\n    },\n    {\n        \"id\": 84025,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 41529.69\n    },\n    {\n        \"id\": 84026,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 72.52\n    },\n    {\n        \"id\": 84027,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 0\n    },\n    {\n        \"id\": 84028,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 2663946.83\n    },\n    {\n        \"id\": 84029,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 2663946.83\n    },\n    {\n        \"id\": 84030,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 2897965.04\n    },\n    {\n        \"id\": 84031,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 2897965.04\n    },\n    {\n        \"id\": 84032,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 2813812.06\n    },\n    {\n        \"id\": 84033,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 3256.01\n    },\n    {\n        \"id\": 84034,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 3396.41\n    },\n    {\n        \"id\": 84035,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 140.4\n    },\n    {\n        \"id\": 84036,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 633487.47\n    },\n    {\n        \"id\": 84037,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 653671.06\n    },\n    {\n        \"id\": 84038,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 20183.59\n    },\n    {\n        \"id\": 84039,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 48140.28\n    },\n    {\n        \"id\": 84040,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 49933.96\n    },\n    {\n        \"id\": 84041,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 1793.68\n    },\n    {\n        \"id\": 84042,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 1054342.02\n    },\n    {\n        \"id\": 84043,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 1081117.3\n    },\n    {\n        \"id\": 84044,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 26775.28\n    },\n    {\n        \"id\": 84045,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 1074586.28\n    },\n    {\n        \"id\": 84046,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 1094479.13\n    },\n    {\n        \"id\": 84047,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 19892.85\n    },\n    {\n        \"id\": 84048,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 84152.98\n    },\n    {\n        \"id\": 84049,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 12852.33\n    },\n    {\n        \"id\": 84050,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 12852.33\n    },\n    {\n        \"id\": 84051,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 47504.7\n    },\n    {\n        \"id\": 84052,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 47506.57\n    },\n    {\n        \"id\": 84053,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 1.87\n    },\n    {\n        \"id\": 84054,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 23795.95\n    },\n    {\n        \"id\": 84055,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 23874.46\n    },\n    {\n        \"id\": 84056,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 78.51\n    },\n    {\n        \"id\": 84057,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 3945205.99\n    },\n    {\n        \"id\": 84058,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 3945205.99\n    },\n    {\n        \"id\": 84059,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 3936003.73\n    },\n    {\n        \"id\": 84060,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 3825.97\n    },\n    {\n        \"id\": 84061,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 3825.97\n    },\n    {\n        \"id\": 84062,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 0\n    },\n    {\n        \"id\": 84063,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 1224888.53\n    },\n    {\n        \"id\": 84064,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 1225299.01\n    },\n    {\n        \"id\": 84065,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 410.48\n    },\n    {\n        \"id\": 84066,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 0\n    },\n    {\n        \"id\": 84067,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 6565.74\n    },\n    {\n        \"id\": 84268,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 7587.34\n    },\n    {\n        \"id\": 84269,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 1021.6\n    },\n    {\n        \"id\": 84270,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 451428.94\n    },\n    {\n        \"id\": 84271,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 455825.59\n    },\n    {\n        \"id\": 84272,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 4396.65\n    },\n    {\n        \"id\": 84273,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 0\n    },\n    {\n        \"id\": 84274,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 379678.53\n    },\n    {\n        \"id\": 84275,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 380480.19\n    },\n    {\n        \"id\": 84276,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 253.37\n    },\n    {\n        \"id\": 84277,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 548.29\n    },\n    {\n        \"id\": 84278,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 265.95\n    },\n    {\n        \"id\": 84279,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 265.95\n    },\n    {\n        \"id\": 84280,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 595422.6\n    },\n    {\n        \"id\": 84281,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 602871.62\n    },\n    {\n        \"id\": 84282,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 7449.02\n    },\n    {\n        \"id\": 84283,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 0\n    },\n    {\n        \"id\": 84284,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 10575.67\n    },\n    {\n        \"id\": 84285,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 10575.67\n    },\n    {\n        \"id\": 84286,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 0\n    },\n    {\n        \"id\": 84287,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 683802.19\n    },\n    {\n        \"id\": 84288,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 736674.96\n    },\n    {\n        \"id\": 84289,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 52872.77\n    },\n    {\n        \"id\": 84290,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 0\n    },\n    {\n        \"id\": 84291,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 579549.61\n    },\n    {\n        \"id\": 84292,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 585826.84\n    },\n    {\n        \"id\": 84293,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 6277.23\n    },\n    {\n        \"id\": 84294,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 0\n    },\n    {\n        \"id\": 84295,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 9202.26\n    },\n    {\n        \"id\": 84296,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 353\n    },\n    {\n        \"id\": 84297,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 353\n    },\n    {\n        \"id\": 84298,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 0\n    },\n    {\n        \"id\": 84299,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 4694.54\n    },\n    {\n        \"id\": 84300,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 4701.36\n    },\n    {\n        \"id\": 84301,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 6.82\n    },\n    {\n        \"id\": 84302,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 0\n    },\n    {\n        \"id\": 84303,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 1547.27\n    },\n    {\n        \"id\": 84304,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 1547.27\n    },\n    {\n        \"id\": 84305,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 0\n    },\n    {\n        \"id\": 84306,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 2308.8\n    },\n    {\n        \"id\": 84307,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 2308.8\n    },\n    {\n        \"id\": 84308,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 0\n    },\n    {\n        \"id\": 84309,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 298.65\n    },\n    {\n        \"id\": 84310,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 428.71\n    },\n    {\n        \"id\": 84311,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 130.06\n    },\n    {\n        \"id\": 84312,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 0\n    },\n    {\n        \"id\": 84313,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 43359.42\n    },\n    {\n        \"id\": 84314,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 43359.42\n    },\n    {\n        \"id\": 84315,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 43359.42\n    },\n    {\n        \"id\": 84316,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 11759.6\n    },\n    {\n        \"id\": 84317,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 11759.6\n    },\n    {\n        \"id\": 84318,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 9919.82\n    },\n    {\n        \"id\": 84319,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 9919.82\n    },\n    {\n        \"id\": 84320,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 21680\n    },\n    {\n        \"id\": 84321,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 21680\n    },\n    {\n        \"id\": 84322,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 177281.55\n    },\n    {\n        \"id\": 84323,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 177281.55\n    },\n    {\n        \"id\": 84324,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 177281.55\n    },\n    {\n        \"id\": 84325,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 177281.55\n    },\n    {\n        \"id\": 84326,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 177281.55\n    },\n    {\n        \"id\": 84327,\n        \"ano\": 2025,\n        \"trimestre\": 1,\n        \"data_evento\": \"2025-01-01\",\n        \"valor\": 177281.55\n    },\n    {\n        \"id\": 140447,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 25249570.81\n    },\n    {\n        \"id\": 141459,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 25952268.32\n    },\n    {\n        \"id\": 141460,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 12049370.27\n    },\n    {\n        \"id\": 141461,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 12049370.27\n    },\n    {\n        \"id\": 141462,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 11503953.55\n    },\n    {\n        \"id\": 141463,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 10786.79\n    },\n    {\n        \"id\": 141464,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 10786.79\n    },\n    {\n        \"id\": 141465,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 855944.12\n    },\n    {\n        \"id\": 141466,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 1013964.15\n    },\n    {\n        \"id\": 141467,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 11703.65\n    },\n    {\n        \"id\": 141468,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 128123.24\n    },\n    {\n        \"id\": 141469,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 18193.14\n    },\n    {\n        \"id\": 141470,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 93057.4\n    },\n    {\n        \"id\": 141471,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 95472.94\n    },\n    {\n        \"id\": 141472,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 1793.54\n    },\n    {\n        \"id\": 141473,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 622\n    },\n    {\n        \"id\": 141474,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 973230.96\n    },\n    {\n        \"id\": 141475,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 1064383.41\n    },\n    {\n        \"id\": 141476,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 41765.98\n    },\n    {\n        \"id\": 141477,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 21335.12\n    },\n    {\n        \"id\": 141478,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 28051.35\n    },\n    {\n        \"id\": 141479,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 1257875.59\n    },\n    {\n        \"id\": 141480,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 1501038.1\n    },\n    {\n        \"id\": 141481,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 25201.45\n    },\n    {\n        \"id\": 141482,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 43689.78\n    },\n    {\n        \"id\": 141483,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 174271.28\n    },\n    {\n        \"id\": 141484,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 4155.51\n    },\n    {\n        \"id\": 141485,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 4155.51\n    },\n    {\n        \"id\": 141486,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 2173465.4\n    },\n    {\n        \"id\": 141487,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 2409791.66\n    },\n    {\n        \"id\": 141488,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 9057.04\n    },\n    {\n        \"id\": 141489,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 227117.13\n    },\n    {\n        \"id\": 141490,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 152.09\n    },\n    {\n        \"id\": 141491,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 292890.83\n    },\n    {\n        \"id\": 141492,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 296094.85\n    },\n    {\n        \"id\": 141493,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 2446.83\n    },\n    {\n        \"id\": 141494,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 757.19\n    },\n    {\n        \"id\": 141495,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 2185272.18\n    },\n    {\n        \"id\": 141496,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 2275140.86\n    },\n    {\n        \"id\": 141497,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 16053.49\n    },\n    {\n        \"id\": 141498,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 73815.19\n    },\n    {\n        \"id\": 141499,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 0\n    },\n    {\n        \"id\": 141500,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 0\n    },\n    {\n        \"id\": 141501,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 3657274.77\n    },\n    {\n        \"id\": 141502,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 4038516.98\n    },\n    {\n        \"id\": 141503,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 32528.18\n    },\n    {\n        \"id\": 141504,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 348015.32\n    },\n    {\n        \"id\": 141505,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 698.71\n    },\n    {\n        \"id\": 141506,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 545416.72\n    },\n    {\n        \"id\": 141507,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 45809.54\n    },\n    {\n        \"id\": 141508,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 46922.08\n    },\n    {\n        \"id\": 141509,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 1112.54\n    },\n    {\n        \"id\": 141510,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 179651.72\n    },\n    {\n        \"id\": 141511,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 180740.66\n    },\n    {\n        \"id\": 141512,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 1088.94\n    },\n    {\n        \"id\": 141513,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 110727.11\n    },\n    {\n        \"id\": 141514,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 111430.03\n    },\n    {\n        \"id\": 141515,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 702.92\n    },\n    {\n        \"id\": 141516,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 0\n    },\n    {\n        \"id\": 141517,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 3743563.63\n    },\n    {\n        \"id\": 141518,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 2368224.73\n    },\n    {\n        \"id\": 141519,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 1375338.9\n    },\n    {\n        \"id\": 141520,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 19131.39\n    },\n    {\n        \"id\": 141521,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 19294.39\n    },\n    {\n        \"id\": 141522,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 163\n    },\n    {\n        \"id\": 141523,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 108243.46\n    },\n    {\n        \"id\": 141524,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 108617.07\n    },\n    {\n        \"id\": 141525,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 373.61\n    },\n    {\n        \"id\": 141526,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 81853.5\n    },\n    {\n        \"id\": 141527,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 81995.61\n    },\n    {\n        \"id\": 141528,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 142.11\n    },\n    {\n        \"id\": 141529,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 0\n    },\n    {\n        \"id\": 141530,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 4878494.2\n    },\n    {\n        \"id\": 141531,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 4878494.2\n    },\n    {\n        \"id\": 141532,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 6315224.2\n    },\n    {\n        \"id\": 141533,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 6315224.2\n    },\n    {\n        \"id\": 141534,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 6137210.76\n    },\n    {\n        \"id\": 141535,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 7011.23\n    },\n    {\n        \"id\": 141536,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 7157.17\n    },\n    {\n        \"id\": 141537,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 145.94\n    },\n    {\n        \"id\": 141538,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 1284153.66\n    },\n    {\n        \"id\": 141539,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 1328061.44\n    },\n    {\n        \"id\": 141540,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 43907.78\n    },\n    {\n        \"id\": 141541,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 71626.38\n    },\n    {\n        \"id\": 141542,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 73742.75\n    },\n    {\n        \"id\": 141543,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 2116.37\n    },\n    {\n        \"id\": 141544,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 2352010.83\n    },\n    {\n        \"id\": 141545,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 2448847.57\n    },\n    {\n        \"id\": 141546,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 96836.74\n    },\n    {\n        \"id\": 141547,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 2422408.66\n    },\n    {\n        \"id\": 141548,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 2503405.04\n    },\n    {\n        \"id\": 141549,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 80996.38\n    },\n    {\n        \"id\": 141550,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 178013.44\n    },\n    {\n        \"id\": 141551,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 24210.26\n    },\n    {\n        \"id\": 141552,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 24210.26\n    },\n    {\n        \"id\": 141553,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 98079.43\n    },\n    {\n        \"id\": 141554,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 99170.86\n    },\n    {\n        \"id\": 141555,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 1091.43\n    },\n    {\n        \"id\": 141556,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 55723.75\n    },\n    {\n        \"id\": 141557,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 56249.59\n    },\n    {\n        \"id\": 141558,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 525.84\n    },\n    {\n        \"id\": 141559,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 7205360.57\n    },\n    {\n        \"id\": 141560,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 7205360.57\n    },\n    {\n        \"id\": 141561,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 7183164.68\n    },\n    {\n        \"id\": 141562,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 6554.32\n    },\n    {\n        \"id\": 141563,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 6554.32\n    },\n    {\n        \"id\": 141564,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 2236573.67\n    },\n    {\n        \"id\": 141565,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 2245078.02\n    },\n    {\n        \"id\": 141566,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 3115.68\n    },\n    {\n        \"id\": 141567,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 5388.67\n    },\n    {\n        \"id\": 141568,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 17100.35\n    },\n    {\n        \"id\": 141569,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 18860.98\n    },\n    {\n        \"id\": 141570,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 1526.63\n    },\n    {\n        \"id\": 141571,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 234\n    },\n    {\n        \"id\": 141572,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 904685.18\n    },\n    {\n        \"id\": 141573,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 911908.94\n    },\n    {\n        \"id\": 141574,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 6656.28\n    },\n    {\n        \"id\": 141575,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 567.48\n    },\n    {\n        \"id\": 141576,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 800932.9\n    },\n    {\n        \"id\": 141577,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 805708.29\n    },\n    {\n        \"id\": 141578,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 4233.86\n    },\n    {\n        \"id\": 141579,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 541.53\n    },\n    {\n        \"id\": 141580,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 265.95\n    },\n    {\n        \"id\": 141581,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 265.95\n    },\n    {\n        \"id\": 141582,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 982520.59\n    },\n    {\n        \"id\": 141583,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 1023253.51\n    },\n    {\n        \"id\": 141584,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 30681.16\n    },\n    {\n        \"id\": 141585,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 10051.76\n    },\n    {\n        \"id\": 141586,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 46181.33\n    },\n    {\n        \"id\": 141587,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 48033.88\n    },\n    {\n        \"id\": 141588,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 1852.55\n    },\n    {\n        \"id\": 141589,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 1355547.6\n    },\n    {\n        \"id\": 141590,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 1422009.17\n    },\n    {\n        \"id\": 141591,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 63599.51\n    },\n    {\n        \"id\": 141592,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 2862.06\n    },\n    {\n        \"id\": 141593,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 832802.79\n    },\n    {\n        \"id\": 141594,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 857113.13\n    },\n    {\n        \"id\": 141595,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 12653.27\n    },\n    {\n        \"id\": 141596,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 11657.07\n    },\n    {\n        \"id\": 141597,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 22195.89\n    },\n    {\n        \"id\": 141598,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 1200.9\n    },\n    {\n        \"id\": 141599,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 1207\n    },\n    {\n        \"id\": 141600,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 6.1\n    },\n    {\n        \"id\": 208462,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 7882.44\n    },\n    {\n        \"id\": 208463,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 7987.09\n    },\n    {\n        \"id\": 208464,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 6.82\n    },\n    {\n        \"id\": 208465,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 97.83\n    },\n    {\n        \"id\": 208466,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 5422.49\n    },\n    {\n        \"id\": 208467,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 5590.88\n    },\n    {\n        \"id\": 208468,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 33.08\n    },\n    {\n        \"id\": 208469,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 135.31\n    },\n    {\n        \"id\": 208470,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 432.98\n    },\n    {\n        \"id\": 208471,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 455.77\n    },\n    {\n        \"id\": 208472,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 22.79\n    },\n    {\n        \"id\": 208473,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 5572.01\n    },\n    {\n        \"id\": 208474,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 5677.82\n    },\n    {\n        \"id\": 208475,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 23.38\n    },\n    {\n        \"id\": 208476,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 82.43\n    },\n    {\n        \"id\": 208477,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 1685.07\n    },\n    {\n        \"id\": 208478,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 1835.48\n    },\n    {\n        \"id\": 208479,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 130.06\n    },\n    {\n        \"id\": 208480,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 20.35\n    },\n    {\n        \"id\": 208481,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 51753.29\n    },\n    {\n        \"id\": 208482,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 51753.29\n    },\n    {\n        \"id\": 208483,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 51753.29\n    },\n    {\n        \"id\": 208484,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 12659.6\n    },\n    {\n        \"id\": 208485,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 12659.6\n    },\n    {\n        \"id\": 208486,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 13879.73\n    },\n    {\n        \"id\": 208487,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 13879.73\n    },\n    {\n        \"id\": 208488,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 25213.96\n    },\n    {\n        \"id\": 208489,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 25213.96\n    },\n    {\n        \"id\": 208490,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 330559.99\n    },\n    {\n        \"id\": 208491,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 330559.99\n    },\n    {\n        \"id\": 208492,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 330559.99\n    },\n    {\n        \"id\": 208493,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 330559.99\n    },\n    {\n        \"id\": 208494,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 330559.99\n    },\n    {\n        \"id\": 208495,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 702697.51\n    },\n    {\n        \"id\": 208496,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 702697.51\n    },\n    {\n        \"id\": 208497,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 702697.51\n    },\n    {\n        \"id\": 208498,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 702697.51\n    },\n    {\n        \"id\": 208499,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 702697.51\n    },\n    {\n        \"id\": 208500,\n        \"ano\": 2025,\n        \"trimestre\": 2,\n        \"data_evento\": \"2025-04-01\",\n        \"valor\": 702697.51\n    },\n    {\n        \"id\": 349479,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 39310678.2\n    },\n    {\n        \"id\": 349480,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 40893354.77\n    },\n    {\n        \"id\": 349481,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 19974089.12\n    },\n    {\n        \"id\": 349482,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 19974089.12\n    },\n    {\n        \"id\": 349483,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 19148402.06\n    },\n    {\n        \"id\": 349484,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 15811.11\n    },\n    {\n        \"id\": 349485,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 15811.11\n    },\n    {\n        \"id\": 349486,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 3113550.46\n    },\n    {\n        \"id\": 349487,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 3354207.11\n    },\n    {\n        \"id\": 349488,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 17412.44\n    },\n    {\n        \"id\": 349489,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 195231.34\n    },\n    {\n        \"id\": 349490,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 28012.87\n    },\n    {\n        \"id\": 349491,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 136916.12\n    },\n    {\n        \"id\": 349492,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 141203.18\n    },\n    {\n        \"id\": 349493,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 3279.06\n    },\n    {\n        \"id\": 349494,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 1008\n    },\n    {\n        \"id\": 349495,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 1716339.16\n    },\n    {\n        \"id\": 349496,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 1860749.36\n    },\n    {\n        \"id\": 349497,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 68104.97\n    },\n    {\n        \"id\": 349498,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 33364.4\n    },\n    {\n        \"id\": 349499,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 42940.83\n    },\n    {\n        \"id\": 349500,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 1474778.32\n    },\n    {\n        \"id\": 349501,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 1852684.69\n    },\n    {\n        \"id\": 349502,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 41938.04\n    },\n    {\n        \"id\": 349503,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 67176.37\n    },\n    {\n        \"id\": 349504,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 268791.96\n    },\n    {\n        \"id\": 349505,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 5654.96\n    },\n    {\n        \"id\": 349506,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 5654.96\n    },\n    {\n        \"id\": 349507,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 3692526.11\n    },\n    {\n        \"id\": 349508,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 4058943.91\n    },\n    {\n        \"id\": 349509,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 14983.43\n    },\n    {\n        \"id\": 349510,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 351282.28\n    },\n    {\n        \"id\": 349511,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 152.09\n    },\n    {\n        \"id\": 349512,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 445578.86\n    },\n    {\n        \"id\": 349513,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 450344.68\n    },\n    {\n        \"id\": 349514,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 3606.03\n    },\n    {\n        \"id\": 349515,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 1159.79\n    },\n    {\n        \"id\": 349516,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 3259449.95\n    },\n    {\n        \"id\": 349517,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 3399593.68\n    },\n    {\n        \"id\": 349518,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 26337.46\n    },\n    {\n        \"id\": 349519,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 113806.27\n    },\n    {\n        \"id\": 349520,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 0\n    },\n    {\n        \"id\": 349521,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 0\n    },\n    {\n        \"id\": 349522,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 5287797.01\n    },\n    {\n        \"id\": 349523,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 5880330.85\n    },\n    {\n        \"id\": 349524,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 54190.24\n    },\n    {\n        \"id\": 349525,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 537244.59\n    },\n    {\n        \"id\": 349526,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 1099.01\n    },\n    {\n        \"id\": 349527,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 825687.06\n    },\n    {\n        \"id\": 349528,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 69186.84\n    },\n    {\n        \"id\": 349529,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 70576.94\n    },\n    {\n        \"id\": 349530,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 1390.1\n    },\n    {\n        \"id\": 349531,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 275306.51\n    },\n    {\n        \"id\": 349532,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 277438.19\n    },\n    {\n        \"id\": 349533,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 2131.68\n    },\n    {\n        \"id\": 349534,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 172315.07\n    },\n    {\n        \"id\": 349535,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 173017.99\n    },\n    {\n        \"id\": 349536,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 702.92\n    },\n    {\n        \"id\": 349537,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 0\n    },\n    {\n        \"id\": 349538,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 5267689\n    },\n    {\n        \"id\": 349539,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 4726701.81\n    },\n    {\n        \"id\": 349540,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 540987.19\n    },\n    {\n        \"id\": 349541,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 27577.25\n    },\n    {\n        \"id\": 349542,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 27903.25\n    },\n    {\n        \"id\": 349543,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 326\n    },\n    {\n        \"id\": 349544,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 159051.56\n    },\n    {\n        \"id\": 349545,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 159782.12\n    },\n    {\n        \"id\": 350806,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 730.56\n    },\n    {\n        \"id\": 350807,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 122249.83\n    },\n    {\n        \"id\": 350808,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 122461.53\n    },\n    {\n        \"id\": 350809,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 211.7\n    },\n    {\n        \"id\": 350810,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 0\n    },\n    {\n        \"id\": 350811,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 7093041.57\n    },\n    {\n        \"id\": 350812,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 7093041.57\n    },\n    {\n        \"id\": 350813,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 9732483.36\n    },\n    {\n        \"id\": 350814,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 9732483.36\n    },\n    {\n        \"id\": 350815,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 9460609.46\n    },\n    {\n        \"id\": 350816,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 10766.45\n    },\n    {\n        \"id\": 350817,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 10917.93\n    },\n    {\n        \"id\": 350818,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 151.48\n    },\n    {\n        \"id\": 350819,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 1934819.85\n    },\n    {\n        \"id\": 350820,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 2002451.82\n    },\n    {\n        \"id\": 350821,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 67631.97\n    },\n    {\n        \"id\": 350822,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 95112.48\n    },\n    {\n        \"id\": 350823,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 97551.54\n    },\n    {\n        \"id\": 350824,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 2439.06\n    },\n    {\n        \"id\": 350825,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 3649679.64\n    },\n    {\n        \"id\": 350826,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 3816577.84\n    },\n    {\n        \"id\": 350827,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 166898.2\n    },\n    {\n        \"id\": 350828,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 3770231.04\n    },\n    {\n        \"id\": 350829,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 3912330.95\n    },\n    {\n        \"id\": 350830,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 142099.91\n    },\n    {\n        \"id\": 350831,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 271873.9\n    },\n    {\n        \"id\": 350832,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 35568.19\n    },\n    {\n        \"id\": 350833,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 35568.19\n    },\n    {\n        \"id\": 350834,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 148654.16\n    },\n    {\n        \"id\": 350835,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 150835.15\n    },\n    {\n        \"id\": 350836,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 2180.99\n    },\n    {\n        \"id\": 350837,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 87651.55\n    },\n    {\n        \"id\": 350838,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 88624.72\n    },\n    {\n        \"id\": 350839,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 973.17\n    },\n    {\n        \"id\": 350840,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 10465515.15\n    },\n    {\n        \"id\": 350841,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 10465515.15\n    },\n    {\n        \"id\": 350842,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 10430325.63\n    },\n    {\n        \"id\": 350843,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 9282.67\n    },\n    {\n        \"id\": 350844,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 9282.67\n    },\n    {\n        \"id\": 350845,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 3248258.81\n    },\n    {\n        \"id\": 350846,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 3264857.03\n    },\n    {\n        \"id\": 350847,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 5820.88\n    },\n    {\n        \"id\": 350848,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 10777.34\n    },\n    {\n        \"id\": 350849,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 27634.96\n    },\n    {\n        \"id\": 350850,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 30134.62\n    },\n    {\n        \"id\": 350851,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 2031.66\n    },\n    {\n        \"id\": 350852,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 468\n    },\n    {\n        \"id\": 350853,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 1357941.42\n    },\n    {\n        \"id\": 350854,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 1367992.29\n    },\n    {\n        \"id\": 350855,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 8915.91\n    },\n    {\n        \"id\": 350856,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 1134.96\n    },\n    {\n        \"id\": 350857,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 1222187.27\n    },\n    {\n        \"id\": 350858,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 1230936.39\n    },\n    {\n        \"id\": 350859,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 8214.35\n    },\n    {\n        \"id\": 350860,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 534.77\n    },\n    {\n        \"id\": 350861,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 265.95\n    },\n    {\n        \"id\": 350862,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 265.95\n    },\n    {\n        \"id\": 350863,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 1369618.58\n    },\n    {\n        \"id\": 350864,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 1443635.4\n    },\n    {\n        \"id\": 350865,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 53913.3\n    },\n    {\n        \"id\": 350866,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 20103.52\n    },\n    {\n        \"id\": 350867,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 81786.99\n    },\n    {\n        \"id\": 350868,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 85492.09\n    },\n    {\n        \"id\": 350869,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 3705.1\n    },\n    {\n        \"id\": 350870,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 2027293.01\n    },\n    {\n        \"id\": 350871,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 2107343.38\n    },\n    {\n        \"id\": 350872,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 74326.25\n    },\n    {\n        \"id\": 350873,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 5724.12\n    },\n    {\n        \"id\": 350874,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 1086055.97\n    },\n    {\n        \"id\": 350875,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 1128399.42\n    },\n    {\n        \"id\": 350876,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 19029.31\n    },\n    {\n        \"id\": 350877,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 23314.14\n    },\n    {\n        \"id\": 350878,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 35189.52\n    },\n    {\n        \"id\": 350879,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 2048.8\n    },\n    {\n        \"id\": 350880,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 2061\n    },\n    {\n        \"id\": 350881,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 12.2\n    },\n    {\n        \"id\": 350882,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 11070.34\n    },\n    {\n        \"id\": 350883,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 11272.82\n    },\n    {\n        \"id\": 350884,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 6.82\n    },\n    {\n        \"id\": 350885,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 195.66\n    },\n    {\n        \"id\": 350886,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 9297.71\n    },\n    {\n        \"id\": 350887,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 9634.49\n    },\n    {\n        \"id\": 350888,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 66.16\n    },\n    {\n        \"id\": 350889,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 270.62\n    },\n    {\n        \"id\": 350890,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 865.96\n    },\n    {\n        \"id\": 350891,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 911.54\n    },\n    {\n        \"id\": 350892,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 45.58\n    },\n    {\n        \"id\": 350893,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 8835.22\n    },\n    {\n        \"id\": 350894,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 9046.84\n    },\n    {\n        \"id\": 350895,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 46.76\n    },\n    {\n        \"id\": 350896,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 164.86\n    },\n    {\n        \"id\": 350897,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 3071.49\n    },\n    {\n        \"id\": 350898,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 3242.25\n    },\n    {\n        \"id\": 350899,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 130.06\n    },\n    {\n        \"id\": 350900,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 40.7\n    },\n    {\n        \"id\": 350901,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 60147.16\n    },\n    {\n        \"id\": 350902,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 60147.16\n    },\n    {\n        \"id\": 350903,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 60147.16\n    },\n    {\n        \"id\": 350904,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 13559.6\n    },\n    {\n        \"id\": 350905,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 13559.6\n    },\n    {\n        \"id\": 350906,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 17839.64\n    },\n    {\n        \"id\": 350907,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 17839.64\n    },\n    {\n        \"id\": 350908,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 28747.92\n    },\n    {\n        \"id\": 350909,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 28747.92\n    },\n    {\n        \"id\": 350910,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 661119.98\n    },\n    {\n        \"id\": 350911,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 661119.98\n    },\n    {\n        \"id\": 350912,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 661119.98\n    },\n    {\n        \"id\": 350913,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 661119.98\n    },\n    {\n        \"id\": 350914,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 661119.98\n    },\n    {\n        \"id\": 350915,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 1582676.57\n    },\n    {\n        \"id\": 350916,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 1582676.57\n    },\n    {\n        \"id\": 350917,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 1582676.57\n    },\n    {\n        \"id\": 350918,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 1582676.57\n    },\n    {\n        \"id\": 350919,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 1582676.57\n    },\n    {\n        \"id\": 350920,\n        \"ano\": 2025,\n        \"trimestre\": 3,\n        \"data_evento\": \"2025-07-01\",\n        \"valor\": 1582676.57\n    }\n]"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "Get Operadora",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/operadoras/:cnpj",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"operadoras",
+												":cnpj"
+											],
+											"variable": [
+												{
+													"key": "cnpj",
+													"value": "string",
+													"description": "Aceita apenas números ou com formatação"
+												}
+											]
+										},
+										"description": "Busca os detalhes de uma operadora pelo CNPJ.\nRealiza sanitização do input antes da busca."
+									},
+									"response": [
+										{
+											"name": "Successful Response",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/operadoras/:cnpj",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"operadoras",
+														":cnpj"
+													],
+													"variable": [
+														{
+															"key": "cnpj"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"RegistroANS\": 411,\n  \"CNPJ\": \"string\",\n  \"RazaoSocial\": \"string\",\n  \"UF\": \"string\",\n  \"Modalidade\": null\n}"
+										},
+										{
+											"name": "Validation Error",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/operadoras/:cnpj",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"operadoras",
+														":cnpj"
+													],
+													"variable": [
+														{
+															"key": "cnpj"
+														}
+													]
+												}
+											},
+											"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+											"code": 422,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        175\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        1672\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "Sucesso - Detalhes da Operadora",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/operadoras/:cnpj",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"operadoras",
+														":cnpj"
+													],
+													"query": [
+														{
+															"key": "",
+															"value": "",
+															"disabled": true
+														}
+													],
+													"variable": [
+														{
+															"key": "cnpj",
+															"value": "50368034000101",
+															"description": "Aceita apenas números ou com formatação"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": null,
+											"header": [
+												{
+													"key": "date",
+													"value": "Tue, 03 Feb 2026 17:59:50 GMT"
+												},
+												{
+													"key": "server",
+													"value": "uvicorn"
+												},
+												{
+													"key": "content-length",
+													"value": "156"
+												},
+												{
+													"key": "content-type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"RegistroANS\": 304123,\n    \"CNPJ\": \"50368034000101\",\n    \"RazaoSocial\": \"UNIMED DE AVARÉ COOPERATIVA DE TRABALHO MÉDICO\",\n    \"UF\": \"SP\",\n    \"Modalidade\": \"Cooperativa Médica\"\n}"
+										},
+										{
+											"name": "Erro - CNPJ Inválido (400)",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/operadoras/:cnpj",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"operadoras",
+														":cnpj"
+													],
+													"query": [
+														{
+															"key": "",
+															"value": "",
+															"disabled": true
+														}
+													],
+													"variable": [
+														{
+															"key": "cnpj",
+															"value": "5036803400010",
+															"description": "Aceita apenas números ou com formatação"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": null,
+											"header": [
+												{
+													"key": "date",
+													"value": "Tue, 03 Feb 2026 18:02:14 GMT"
+												},
+												{
+													"key": "server",
+													"value": "uvicorn"
+												},
+												{
+													"key": "content-length",
+													"value": "72"
+												},
+												{
+													"key": "content-type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"detail\": \"CNPJ inválido. O valor deve conter 14 dígitos numéricos.\"\n}"
+										},
+										{
+											"name": "Erro - Operadora Não Encontrada (404)",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/operadoras/:cnpj",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"operadoras",
+														":cnpj"
+													],
+													"query": [
+														{
+															"key": "",
+															"value": "",
+															"disabled": true
+														}
+													],
+													"variable": [
+														{
+															"key": "cnpj",
+															"value": "50368034000105",
+															"description": "Aceita apenas números ou com formatação"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": null,
+											"header": [
+												{
+													"key": "date",
+													"value": "Tue, 03 Feb 2026 18:03:13 GMT"
+												},
+												{
+													"key": "server",
+													"value": "uvicorn"
+												},
+												{
+													"key": "content-length",
+													"value": "63"
+												},
+												{
+													"key": "content-type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"detail\": \"Operadora com CNPJ 50368034000105 não encontrada.\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "List Operadoras",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/operadoras/?page=1&limit=10&search=string",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"operadoras",
+										""
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										},
+										{
+											"key": "search",
+											"value": "string",
+											"description": "Busca por Razão Social ou CNPJ"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Successful Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/operadoras/?page=1&limit=10&search=string",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"operadoras",
+												""
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "1"
+												},
+												{
+													"key": "limit",
+													"value": "10"
+												},
+												{
+													"key": "search",
+													"value": "string",
+													"description": "Busca por Razão Social ou CNPJ"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"data\": [\n    {\n      \"RegistroANS\": 4731,\n      \"CNPJ\": \"string\",\n      \"RazaoSocial\": \"string\",\n      \"UF\": \"string\",\n      \"Modalidade\": \"string\"\n    },\n    {\n      \"RegistroANS\": 6705,\n      \"CNPJ\": \"string\",\n      \"RazaoSocial\": \"string\",\n      \"UF\": null,\n      \"Modalidade\": null\n    }\n  ],\n  \"meta\": {\n    \"total\": 2178,\n    \"page\": 5662,\n    \"limit\": 9560,\n    \"total_pages\": 7911\n  }\n}"
+								},
+								{
+									"name": "Validation Error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/operadoras/?page=1&limit=10&search=string",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"operadoras",
+												""
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "1"
+												},
+												{
+													"key": "limit",
+													"value": "10"
+												},
+												{
+													"key": "search",
+													"value": "string",
+													"description": "Busca por Razão Social ou CNPJ"
+												}
+											]
+										}
+									},
+									"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+									"code": 422,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        175\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        1672\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "List Operadoras",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/operadoras/?page=1&limit=10&search=string",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"operadoras",
+												""
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "1"
+												},
+												{
+													"key": "limit",
+													"value": "10"
+												},
+												{
+													"key": "search",
+													"value": "string",
+													"description": "Busca por Razão Social ou CNPJ"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "",
+									"header": [
+										{
+											"key": "date",
+											"value": "Tue, 03 Feb 2026 17:45:13 GMT"
+										},
+										{
+											"key": "server",
+											"value": "uvicorn"
+										},
+										{
+											"key": "content-length",
+											"value": "66"
+										},
+										{
+											"key": "content-type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": [],\n    \"meta\": {\n        \"total\": 0,\n        \"page\": 1,\n        \"limit\": 10,\n        \"total_pages\": 0\n    }\n}"
+								},
+								{
+									"name": "Sucesso-ListaOperadoras",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/operadoras/?page=1&limit=10&search=string",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"operadoras",
+												""
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "1"
+												},
+												{
+													"key": "limit",
+													"value": "10"
+												},
+												{
+													"key": "search",
+													"value": "string",
+													"description": "Busca por Razão Social ou CNPJ"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "date",
+											"value": "Tue, 03 Feb 2026 17:50:17 GMT"
+										},
+										{
+											"key": "server",
+											"value": "uvicorn"
+										},
+										{
+											"key": "content-length",
+											"value": "66"
+										},
+										{
+											"key": "content-type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": [],\n    \"meta\": {\n        \"total\": 0,\n        \"page\": 1,\n        \"limit\": 10,\n        \"total_pages\": 0\n    }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "estatisticas",
+					"item": [
+						{
+							"name": "Get Estatisticas",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/estatisticas/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"estatisticas",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Successful Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/estatisticas/",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"estatisticas",
+												""
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"total_geral\": 6599.3997343452575,\n  \"media_por_operadora\": 7642.32076231574,\n  \"top_5_operadoras\": [\n    {\n      \"razao_social\": \"string\",\n      \"uf\": \"string\",\n      \"total_despesas\": 4293.861582449694\n    },\n    {\n      \"razao_social\": \"string\",\n      \"uf\": \"string\",\n      \"total_despesas\": 3222.6099366522076\n    }\n  ],\n  \"despesas_por_uf\": [\n    {\n      \"uf\": \"string\",\n      \"total\": 7304.191268363378\n    },\n    {\n      \"uf\": \"string\",\n      \"total\": 9637.00443628964\n    }\n  ]\n}"
+								},
+								{
+									"name": "Sucesso - Estatísticas Consolidadas",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/estatisticas/",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"estatisticas",
+												""
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "date",
+											"value": "Tue, 03 Feb 2026 18:04:55 GMT"
+										},
+										{
+											"key": "server",
+											"value": "uvicorn"
+										},
+										{
+											"key": "content-length",
+											"value": "1516"
+										},
+										{
+											"key": "content-type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"total_geral\": 3279203340225.26,\n    \"media_por_operadora\": 4529286381.526602,\n    \"top_5_operadoras\": [\n        {\n            \"razao_social\": \"BRADESCO SAÃ\\u009aDE S.A.\",\n            \"uf\": \"RJ\",\n            \"total_despesas\": 380539641193.44\n        },\n        {\n            \"razao_social\": \"SUL AMERICA COMPANHIA DE SEGURO SAÃ\\u009aDE\",\n            \"uf\": \"RJ\",\n            \"total_despesas\": 285351265714.19\n        },\n        {\n            \"razao_social\": \"AMIL ASSISTÃ\\u008aNCIA MÃ\\u0089DICA INTERNACIONAL S.A.\",\n            \"uf\": \"SP\",\n            \"total_despesas\": 240730522661.23\n        },\n        {\n            \"razao_social\": \"HAPVIDA ASSISTENCIA MEDICA S.A.\",\n            \"uf\": \"CE\",\n            \"total_despesas\": 110254224700.01\n        },\n        {\n            \"razao_social\": \"NOTRE DAME INTERMÃ\\u0089DICA SAÃ\\u009aDE S.A.\",\n            \"uf\": \"SP\",\n            \"total_despesas\": 109954985824.95\n        }\n    ],\n    \"despesas_por_uf\": [\n        {\n            \"uf\": \"AC\",\n            \"total\": 2124280521.58\n        },\n        {\n            \"uf\": \"AL\",\n            \"total\": 13949159363.42\n        },\n        {\n            \"uf\": \"AM\",\n            \"total\": 6240365886.33\n        },\n        {\n            \"uf\": \"AP\",\n            \"total\": 49127164.28\n        },\n        {\n            \"uf\": \"BA\",\n            \"total\": 14818882361.15\n        },\n        {\n            \"uf\": \"CE\",\n            \"total\": 175813154886.01\n        },\n        {\n            \"uf\": \"DF\",\n            \"total\": 181560354057.02\n        },\n        {\n            \"uf\": \"ES\",\n            \"total\": 58353257935.8\n        },\n        {\n            \"uf\": \"GO\",\n            \"total\": 64711971862.12\n        },\n        {\n            \"uf\": \"MA\",\n            \"total\": 1859351193.81\n        },\n        {\n            \"uf\": \"MG\",\n            \"total\": 190491827544.99\n        },\n        {\n            \"uf\": \"MS\",\n            \"total\": 24489280885.68\n        },\n        {\n            \"uf\": \"MT\",\n            \"total\": 27390969764.78\n        },\n        {\n            \"uf\": \"PA\",\n            \"total\": 20951695714.63\n        },\n        {\n            \"uf\": \"PB\",\n            \"total\": 16305622778.65\n        },\n        {\n            \"uf\": \"PE\",\n            \"total\": 33550664774.69\n        },\n        {\n            \"uf\": \"PI\",\n            \"total\": 17902113185.79\n        },\n        {\n            \"uf\": \"PR\",\n            \"total\": 238657531347.91\n        },\n        {\n            \"uf\": \"RJ\",\n            \"total\": 847021536598.32\n        },\n        {\n            \"uf\": \"RN\",\n            \"total\": 13354031615.42\n        },\n        {\n            \"uf\": \"RO\",\n            \"total\": 6312469390.05\n        },\n        {\n            \"uf\": \"RS\",\n            \"total\": 110301434962.43\n        },\n        {\n            \"uf\": \"SC\",\n            \"total\": 71785956420.38\n        },\n        {\n            \"uf\": \"SE\",\n            \"total\": 8150978048.63\n        },\n        {\n            \"uf\": \"SP\",\n            \"total\": 1130191016394.77\n        },\n        {\n            \"uf\": \"TO\",\n            \"total\": 2866305566.62\n        }\n    ]\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "/",
+			"item": [
+				{
+					"name": "Read Root",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "/"
+		}
+	]
+}
