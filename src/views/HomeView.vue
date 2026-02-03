@@ -63,14 +63,23 @@
         Anterior
       </button>
       
-      <span>Página {{ store.paginaAtual }}</span>
+      <span>Página {{ store.paginaAtual }} de {{ store.totalPaginas }}</span>
       
       <button 
-        :disabled="store.lista.length < store.itensPorPagina" 
+        :disabled="store.paginaAtual >= store.totalPaginas" 
         @click="mudarPagina(1)"
       >
         Próximo
       </button>
+    </div>
+    <div v-if="store.erroStatus === 404" class="not-found">
+      <h3>Operadora não encontrada</h3>
+      <p>O CNPJ informado não consta na base de dados.</p>
+      <button @click="$router.push('/')">Voltar para Início</button>
+    </div>
+
+    <div v-else-if="store.erro" class="error-generic">
+      {{ store.erro }}
     </div>
   </div>
 </template>

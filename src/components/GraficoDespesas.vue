@@ -24,13 +24,15 @@ const props = defineProps({
 
 // Transforma os dados da API no formato que o Chart.js entende
 const chartData = computed(() => {
+
+  console.log("Dados recebidos no Gráfico:", props.dados);
   return {
     labels: props.dados.map(item => item.uf), // Eixo X: UFs
     datasets: [
       {
         label: 'Total de Despesas (R$)',
         backgroundColor: '#42b983',
-        data: props.dados.map(item => item.total) // Eixo Y: Valores
+        data: props.dados.map(item => item.valor_total || item.total || 0)
       }
     ]
   };

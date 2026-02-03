@@ -89,3 +89,10 @@ SET
     total_despesas = REPLACE(@v_total, ',', '.'),
     media_despesas = REPLACE(@v_media, ',', '.'),
     desvio_padrao  = REPLACE(@v_desvio, ',', '.');
+
+-- Exemplo para MySQL
+LOAD DATA INFILE '.../data/operadoras_para_banco.csv'
+INTO TABLE operadoras
+FIELDS TERMINATED BY ';'
+IGNORE 1 ROWS
+(registro_ans, cnpj, razao_social, modalidade, uf);
