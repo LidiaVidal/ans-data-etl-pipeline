@@ -7,12 +7,12 @@
 
     <div v-if="store.operadoraAtual && !store.loading">
       <div class="card-detalhe">
-        <h1>{{ store.operadoraAtual.razao_social }}</h1>
+        <h1>{{ store.operadoraAtual.RazaoSocial}}</h1>
         <div class="grid-info">
-          <p><strong>CNPJ:</strong> {{ store.operadoraAtual.cnpj }}</p>
-          <p><strong>Registro ANS:</strong> {{ store.operadoraAtual.registro_ans }}</p>
-          <p><strong>UF:</strong> {{ store.operadoraAtual.uf }}</p>
-          <p><strong>Modalidade:</strong> {{ store.operadoraAtual.modalidade }}</p>
+          <p><strong>CNPJ:</strong> {{ store.operadoraAtual.CNPJ }}</p>
+          <p><strong>Registro ANS:</strong> {{ store.operadoraAtual.RegistroANS }}</p>
+          <p><strong>UF:</strong> {{ store.operadoraAtual.UF }}</p>
+          <p><strong>Modalidade:</strong> {{ store.operadoraAtual.Modalidade }}</p>
         </div>
       </div>
 

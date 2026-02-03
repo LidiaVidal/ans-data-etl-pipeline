@@ -28,7 +28,7 @@ class DespesaBase(BaseModel):
     class Config:
         from_attributes = True
 
-# --- Schemas de Resposta Envelopada 
+# --- Schemas de Resposta Envelopada ---
 
 class PaginationMeta(BaseModel):
     total: int
@@ -48,15 +48,8 @@ class TopOperadora(BaseModel):
     class Config:
         from_attributes = True
 
-class EstatisticasResponse(BaseModel):
-    total_geral: float
-    media_por_operadora: float
-    top_5_operadoras: List[TopOperadora]  
-    despesas_por_uf: List[dict]  
+# --- Novos Schemas para o Gráfico ---
 
-# ... mantenha os imports existentes ...
-
-# --- Adicione esta nova classe para representar uma linha do gráfico ---
 class DespesaUF(BaseModel):
     uf: str
     total: float
@@ -64,9 +57,8 @@ class DespesaUF(BaseModel):
     class Config:
         from_attributes = True
 
-# --- Atualize esta classe para incluir o novo campo ---
 class EstatisticasResponse(BaseModel):
     total_geral: float
     media_por_operadora: float
     top_5_operadoras: List[TopOperadora]
-    despesas_por_uf: List[DespesaUF] # <--- NOVO CAMPO
+    despesas_por_uf: List[DespesaUF]  # <--- Agora o FastAPI sabe validar e enviar este campo!
