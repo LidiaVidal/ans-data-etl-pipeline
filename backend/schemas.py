@@ -61,4 +61,4 @@ class EstatisticasResponse(BaseModel):
     total_geral: float
     media_por_operadora: float
     top_5_operadoras: List[TopOperadora]
-    despesas_por_uf: List[DespesaUF]  # <--- Agora o FastAPI sabe validar e enviar este campo!
+    despesas_por_uf: List[DespesaUF]  
