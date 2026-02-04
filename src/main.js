@@ -1,12 +1,11 @@
 import { createApp } from 'vue'
-import { createPinia } from 'pinia' // Importa o gerenciador de estado
+import { createPinia } from 'pinia' 
 import App from './App.vue'
-import router from './router' // Importa o arquivo que criamos no Passo 2
+import router from './router' 
 
 const app = createApp(App)
 
-// "Use" é como injetamos plugins no Vue
-app.use(createPinia()) // Ativa o Pinia
-app.use(router)        // Ativa o Router
+app.use(createPinia()) 
+app.use(router)        
 
 app.mount('#app')

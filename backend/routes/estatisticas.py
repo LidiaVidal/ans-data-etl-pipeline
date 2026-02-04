@@ -11,18 +11,16 @@ router = APIRouter(
 
 @router.get("/", response_model=schemas.EstatisticasResponse)
 def get_estatisticas(db: Session = Depends(database.get_db)):
-    # 1. Totais Gerais (Mantenha igual)
+    
     total_geral = db.query(func.sum(models.DespesaAgregada.total_despesas)).scalar() or 0
     media_geral = db.query(func.avg(models.DespesaAgregada.total_despesas)).scalar() or 0
 
-    # 2. Top 5 (Mantenha igual)
+    
     top_5 = db.query(models.DespesaAgregada)\
         .order_by(desc(models.DespesaAgregada.total_despesas))\
         .limit(5)\
         .all()
 
-    # 3. NOVO: Agrupamento por UF para o Gráfico
-    # SQL equivalente: SELECT uf, SUM(total_despesas) as total FROM despesas_agregadas GROUP BY uf
     distribuicao_uf = db.query(
         models.DespesaAgregada.uf,
         func.sum(models.DespesaAgregada.total_despesas).label("total")

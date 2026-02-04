@@ -4,9 +4,9 @@ WITH limites_operadora AS (
         o.razao_social,
         d.valor,
         d.data_evento,
-        -- Ranqueia do mais antigo para o mais novo (1 = Primeiro Trimestre dela)
+        
         ROW_NUMBER() OVER (PARTITION BY d.registro_ans ORDER BY d.data_evento ASC) as rn_inicio,
-        -- Ranqueia do mais novo para o mais antigo (1 = Último Trimestre dela)
+        
         ROW_NUMBER() OVER (PARTITION BY d.registro_ans ORDER BY d.data_evento DESC) as rn_fim
     FROM despesas d
     JOIN operadoras o ON d.registro_ans = o.registro_ans
@@ -22,14 +22,14 @@ JOIN limites_operadora fim ON inicio.registro_ans = fim.registro_ans
 WHERE 
     inicio.rn_inicio = 1 
     AND fim.rn_fim = 1
-    AND inicio.valor > 0 -- Evitar divisão por zero
+    AND inicio.valor > 0 
 ORDER BY crescimento_percentual DESC
 LIMIT 5;
 
 SELECT 
     o.uf,
     SUM(d.valor) as despesa_total,
-    -- Desafio Adicional: Média por operadora (Total / Qtd Operadoras Únicas na UF)
+    
     SUM(d.valor) / COUNT(DISTINCT d.registro_ans) as media_por_operadora
 FROM despesas d
 JOIN operadoras o ON d.registro_ans = o.registro_ans

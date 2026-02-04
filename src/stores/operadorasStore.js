@@ -10,16 +10,15 @@ export const useOperadorasStore = defineStore('operadoras', {
     filtroBusca: '',
     loading: false,
     erro: null,
-    erroStatus: null, // <--- 1. ADICIONADO: Necessário para o tratamento de erros (404, 500)
+    erroStatus: null, 
     operadoraAtual: null,
     historicoDespesas: [],
   }),
 
   getters: {
     totalPaginas: (state) => {
-      // Evita divisão por zero
       if (state.itensPorPagina === 0) return 1;
-      // Arredonda para cima (ex: 101 itens / 10 = 10.1 -> 11 páginas)
+
       return Math.ceil(state.total / state.itensPorPagina);
     }
   },
@@ -28,7 +27,7 @@ export const useOperadorasStore = defineStore('operadoras', {
     async buscarOperadoras() {
       this.loading = true;
       this.erro = null;
-      this.erroStatus = null; // Limpa o status de erro anterior
+      this.erroStatus = null; 
 
       try {
         const params = {
@@ -42,24 +41,20 @@ export const useOperadorasStore = defineStore('operadoras', {
 
         const response = await api.get('/operadoras', { params });
 
-        // --- 2. CORREÇÃO DA PAGINAÇÃO ---
-        // Seu backend retorna: { data: [...], meta: { total: 100, ... } }
         if (response.data && Array.isArray(response.data.data)) {
             this.lista = response.data.data;
-            // Acessa o total dentro do objeto 'meta'
+            
             this.total = response.data.meta ? response.data.meta.total : response.data.data.length;
         } else {
-            // Fallback para caso a API mude e retorne lista direta
             this.lista = response.data;
             this.total = response.data.length;
-            // (Removida a chamada recursiva incorreta que estava aqui)
         }
 
       } catch (error) {
         console.error("Erro na requisição:", error);
 
         if (error.response) {
-            // Captura o status (404, 500, etc) para usar no frontend
+            
             this.erroStatus = error.response.status;
             this.erro = error.response.data.detail || "Erro no servidor";
         } else if (error.request) {
@@ -89,7 +84,7 @@ export const useOperadorasStore = defineStore('operadoras', {
 
       } catch (error) {
         console.error("Erro ao carregar detalhes:", error);
-        // Também aplicamos a lógica de status aqui para consistência
+        
         if (error.response) {
             this.erroStatus = error.response.status;
             this.erro = "Não foi possível carregar os detalhes desta operadora.";

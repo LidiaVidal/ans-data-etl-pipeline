@@ -7,7 +7,7 @@ import pandas as pd
 from bs4 import BeautifulSoup
 import shutil
 
-# -
+
 MAPA_COLUNAS = {
     'CNPJ': ['nr_cnpj', 'cnp', 'cnpj', 'cnpj_operadora'],
     'RegistroANS': ['reg_ans', 'cd_operadora', 'registro_ans', 'codigo_ans'],
@@ -93,7 +93,6 @@ def baixar_dados():
             except Exception as e:
                 print(f"   ❌ Falha ao baixar {item['url']}: {e}")
 
-# --- PARTE 2: FUNÇÕES AUXILIARES ---
 
 #Limpa os valores
 def limpar_valor_monetario(valor):
@@ -155,7 +154,6 @@ def identificar_arquivos_nas_pastas(pasta_raiz):
                     arquivos.append((os.path.join(root, file), ano, trim))
     return arquivos
 
-# --- PARTE 3: PROCESSOR ---
 def processar_incrementalmente():
     print(">>> 2. Iniciando processamento incremental com FILTRAGEM CONTÁBIL...")
     arquivo_saida = os.path.join("data", "consolidado_despesas.csv")
@@ -179,12 +177,11 @@ def processar_incrementalmente():
             df = carregar_arquivo_robusto(caminho)
             df = normalizar_colunas(df)
             
-            # Validação de colunas essenciais
             if 'Conta' not in df.columns:
                 print(f"      ⚠️ [Ignorado] Sem coluna 'Conta'. Colunas atuais: {list(df.columns)}")
                 continue
 
-            # Filtro de Despesa (Conta começa com 41)
+          
             col_conta_limpa = df['Conta'].astype(str).str.replace(r'[^0-9]', '', regex=True)
             mascara_despesa = col_conta_limpa.str.startswith('41', na=False)
             df_filtrado = df[mascara_despesa].copy()
@@ -196,29 +193,23 @@ def processar_incrementalmente():
                 
             print(f"      ✅ Filtrado: {qtd_filtrada} registros.")
 
-            # Verifica coluna de Valor
             if 'Valor' not in df_filtrado.columns:
                 print(f"      ❌ ERRO CRÍTICO: Coluna 'Valor' não encontrada após mapeamento. Pulando arquivo.")
                 continue
 
-            # Tratamentos
+     
             df_filtrado['ValorDespesas'] = df_filtrado['Valor'].apply(limpar_valor_monetario).abs()
             df_filtrado['Ano'] = ano
             df_filtrado['Trimestre'] = trim
-            
-            # --- SELEÇÃO FINAL DE COLUNAS (CORRIGIDO) ---
-            # Aqui definimos o que vai para o CSV final
-            # O Raw Data não tem CNPJ/RazaoSocial, então criamos colunas vazias se não existirem
-            # O RegistroANS é crucial para o join posterior
+       
             cols_finais = ['RegistroANS', 'CNPJ', 'RazaoSocial', 'Trimestre', 'Ano', 'ValorDespesas']
             
             for c in cols_finais:
                 if c not in df_filtrado.columns: 
-                    df_filtrado[c] = None # Cria coluna vazia
+                    df_filtrado[c] = None 
                 
             df_export = df_filtrado[cols_finais]
             
-            # Salva
             df_export.to_csv(arquivo_saida, mode='a', index=False, header=primeira_vez, sep=';', encoding='utf-8')
             
             total_registros += len(df_export)
@@ -266,7 +257,6 @@ def validar_resultado():
         print(f"❌ Erro ao ler CSV: {e}")
 
 def raio_x_colunas():
-    # Mantido apenas para debug se necessário
     pass
 
 if __name__ == "__main__":

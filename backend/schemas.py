@@ -2,7 +2,6 @@ from pydantic import BaseModel, Field
 from typing import List, Optional
 from datetime import date
 
-# --- Schemas Básicos (Representam os dados) ---
 
 class OperadoraBase(BaseModel):
     registro_ans: int = Field(..., alias="RegistroANS")
@@ -28,7 +27,6 @@ class DespesaBase(BaseModel):
     class Config:
         from_attributes = True
 
-# --- Schemas de Resposta Envelopada ---
 
 class PaginationMeta(BaseModel):
     total: int
@@ -48,7 +46,6 @@ class TopOperadora(BaseModel):
     class Config:
         from_attributes = True
 
-# --- Novos Schemas para o Gráfico ---
 
 class DespesaUF(BaseModel):
     uf: str
