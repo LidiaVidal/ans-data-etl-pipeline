@@ -1,6 +1,6 @@
-# Intuitive Care - Teste Técnico (Full Stack)
+# Teste Técnico (Full Stack)
 
-Este repositório contém a solução completa para o teste técnico de Estágio em Desenvolvimento da Intuitive Care v2.0. O projeto implementa um pipeline de dados (ETL), modelagem de banco de dados SQL, API REST em Python e Interface Web em Vue.js.
+Este repositório contém a solução completa para o teste técnico de Estágio em Desenvolvimento. O projeto implementa um pipeline de dados (ETL), modelagem de banco de dados SQL, API REST em Python e Interface Web em Vue.js.
 
 ## 🚀 Tecnologias Utilizadas
 
